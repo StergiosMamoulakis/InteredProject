@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InteredProject</string>
+    <string name="hi">Hi...</string>
+    <string name="share">Share</string>
 </resources>
