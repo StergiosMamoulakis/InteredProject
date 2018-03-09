@@ -7,7 +7,7 @@
     tools:context="com.example.intered.interedproject.Main2Activity">
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/nametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,12 +18,12 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/emailtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_below="@+id/editText3"
-        android:layout_marginTop="20dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
         android:ems="10"
         android:hint="E-mail..."
         android:inputType="textEmailAddress" />
