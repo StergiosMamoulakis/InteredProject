@@ -1,5 +1,6 @@
 package com.example.intered.interedproject;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txtName;
     Button btnPost;
     EditText editTextPost;
+    String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         btnPost= (Button)findViewById(R.id.B_post);
         editTextPost= (EditText)findViewById(R.id.editTextPost);
 
+        SharedPreferences prefs= getPreferences(MODE_PRIVATE);
+        name= prefs.getString("text",null);
 
+        txtName.setText(name);
     }
 }
