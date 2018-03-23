@@ -3,6 +3,7 @@ package com.example.intered.interedproject;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class Main2Activity extends AppCompatActivity {
     EditText emailText;
     EditText nameText;
     String name;
+    String eMailText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,13 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View view) {
 
                 name = nameText.getText().toString();
+                eMailText = emailText.getText().toString();
 
 
                 SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                 editor.putString("name", name);
+                editor.putString("name", eMailText);
+
                 editor.apply();
 
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
