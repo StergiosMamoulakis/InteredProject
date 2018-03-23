@@ -19,6 +19,7 @@ public class Main2Activity extends AppCompatActivity {
     String name;
     String eMailText;
     String checkMe="0";
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,10 @@ public class Main2Activity extends AppCompatActivity {
 
                 if (name.matches("") || eMailText.matches("") ) {
                     Toast.makeText(Main2Activity.this, "You did not enter a username", Toast.LENGTH_SHORT).show();
-                    return;
-                }else {
+                }else if(!eMailText.matches(emailPattern)){
+                    Toast.makeText(getApplicationContext(),"valid email address",Toast.LENGTH_SHORT).show();
+                }
+                else {
                     SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                     editor.putString("name", name);
                     editor.putString("email", eMailText);
