@@ -18,7 +18,7 @@ public class Main2Activity extends AppCompatActivity {
     EditText nameText;
     String name;
     String eMailText;
-    String checkMe;
+    String checkMe="0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         SharedPreferences prefs = getSharedPreferences("save", MODE_PRIVATE);
-        checkMe = prefs.getString("check", null);
+        checkMe = prefs.getString("check", "0");
 
         if (checkMe.equals("1")) {
             Intent i = new Intent(getBaseContext(), MainActivity.class);
