@@ -23,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
         btnPost= (Button)findViewById(R.id.B_post);
         editTextPost= (EditText)findViewById(R.id.editTextPost);
 
-        SharedPreferences prefs= getPreferences(MODE_PRIVATE);
-        name= prefs.getString("text",null);
 
-        txtName.setText(name);
+        SharedPreferences prefs = getSharedPreferences("save", MODE_PRIVATE);
+        String restoredText = prefs.getString("name", null);
+
+
+        txtName.setText(restoredText);
     }
 }

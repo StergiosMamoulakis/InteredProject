@@ -35,8 +35,8 @@ public class Main2Activity extends AppCompatActivity {
                 name = nameText.getText().toString();
 
 
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("text", name);
+                SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                editor.putString("name", name);
                 editor.apply();
 
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
