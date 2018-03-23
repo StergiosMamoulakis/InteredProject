@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -17,11 +18,20 @@ public class Main2Activity extends AppCompatActivity {
     EditText nameText;
     String name;
     String eMailText;
+    String checkMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        SharedPreferences prefs = getSharedPreferences("save", MODE_PRIVATE);
+        checkMe = prefs.getString("check", null);
+
+        if (checkMe.equals("1")) {
+            Intent i = new Intent(getBaseContext(), MainActivity.class);
+            startActivity(i);
+        }
 
         nameText=(EditText)findViewById(R.id.nametxt);
         emailText=(EditText)findViewById(R.id.emailtxt);
@@ -37,15 +47,20 @@ public class Main2Activity extends AppCompatActivity {
                 name = nameText.getText().toString();
                 eMailText = emailText.getText().toString();
 
+                if (name.matches("") || eMailText.matches("") ) {
+                    Toast.makeText(Main2Activity.this, "You did not enter a username", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
+                    editor.putString("name", name);
+                    editor.putString("email", eMailText);
+                    editor.putString("check", "1");
 
-                SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
-                editor.putString("name", name);
-                editor.putString("email", eMailText);
+                    editor.apply();
 
-                editor.apply();
-
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(i);
+                    Intent i = new Intent(getBaseContext(), MainActivity.class);
+                    startActivity(i);
+                }
 
             }
         });
