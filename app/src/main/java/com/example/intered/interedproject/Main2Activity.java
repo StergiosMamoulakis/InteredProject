@@ -40,7 +40,7 @@ public class Main2Activity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = getSharedPreferences("save", MODE_PRIVATE).edit();
                 editor.putString("name", name);
-                editor.putString("name", eMailText);
+                editor.putString("email", eMailText);
 
                 editor.apply();
 
