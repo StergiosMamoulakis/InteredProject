@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnPost;
     EditText editTextPost;
     String name;
+    TextView txtEmail;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +24,15 @@ public class MainActivity extends AppCompatActivity {
         txtName= (TextView)findViewById(R.id.Name);
         btnPost= (Button)findViewById(R.id.B_post);
         editTextPost= (EditText)findViewById(R.id.editTextPost);
+        txtEmail= (TextView)findViewById(R.id.emailtxt);
 
 
         SharedPreferences prefs = getSharedPreferences("save", MODE_PRIVATE);
-        String restoredText = prefs.getString("name", null);
+        name = prefs.getString("name", null);
+        email = prefs.getString("email", null);
 
 
-        txtName.setText(restoredText);
+        txtName.setText(name);
+        txtEmail.setText(email);
     }
 }
