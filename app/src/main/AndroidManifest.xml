@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:name=".MainActivity"></activity>
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".ReadData"></activity>
     </application>
 
 </manifest>
